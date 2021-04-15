@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // create your routes for index pages/app pages//
 app.get("/", (req, res) => {
-  res.render("Contact");
+  res.send("contact");
 });
 // create your listenning port for app//
 app.listen(3000, () => console.log("Server Running"));
