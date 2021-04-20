@@ -1,8 +1,7 @@
 /// bring in express and body parser & other dependencies//
 const express = require("express");
-const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
-const path = require("path"); // Sourcing file paths
+const path = require("path");
 const nodemailer = require("nodemailer");
 // initialise our app variable using express//
 const app = express();
@@ -12,11 +11,11 @@ app.set("view engine", "handlebars");
 //enables express to handle your file paths in the public folder
 app.use("/public", express.static(path.join(__dirname, "public")));
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 // create your routes for index pages/app pages//
 app.get("/", (req, res) => {
-  res.send("contact");
+  res.render("contact");
 });
 // create your listenning port for app//
 app.listen(3000, () => console.log("Server Running"));
